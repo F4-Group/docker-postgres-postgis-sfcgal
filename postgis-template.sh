@@ -13,10 +13,12 @@ POSTGIS_CONFIG=/usr/share/postgresql/$PG_MAJOR/contrib/postgis-$POSTGIS_MAJOR
 gosu postgres postgres --single -j template_postgis < $POSTGIS_CONFIG/postgis.sql
 gosu postgres postgres --single -j template_postgis < $POSTGIS_CONFIG/topology.sql
 gosu postgres postgres --single -j template_postgis < $POSTGIS_CONFIG/spatial_ref_sys.sql
+gosu postgres postgres --single -j template_postgis < $POSTGIS_CONFIG/rtpostgis.sql
 gosu postgres postgres --single -j template_postgis < $POSTGIS_CONFIG/sfcgal.sql
 
 #also enable it on given POSTGRES_DB (default to postgres)
 gosu postgres postgres --single -j $POSTGRES_DB < $POSTGIS_CONFIG/postgis.sql
 gosu postgres postgres --single -j $POSTGRES_DB < $POSTGIS_CONFIG/topology.sql
 gosu postgres postgres --single -j $POSTGRES_DB < $POSTGIS_CONFIG/spatial_ref_sys.sql
+gosu postgres postgres --single -j $POSTGRES_DB < $POSTGIS_CONFIG/rtpostgis.sql
 gosu postgres postgres --single -j $POSTGRES_DB < $POSTGIS_CONFIG/sfcgal.sql
