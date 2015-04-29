@@ -4,7 +4,8 @@ MAINTAINER F4<contact@f4-group.com>
 ###Versions
 
 #from http://postgis.net/source
-ENV POSTGIS_VERSION=2.1.7
+ENV POSTGIS_MAJOR 2.1
+ENV POSTGIS_VERSION 2.1.7
 ENV POSTGIS http://download.osgeo.org/postgis/source/postgis-$POSTGIS_VERSION.tar.gz
 
 #from http://trac.osgeo.org/geos/
@@ -84,9 +85,6 @@ WORKDIR /install-postgis/postgis
 RUN make install
 WORKDIR /install-postgis
 RUN ldconfig
-
-RUN mkdir /scripts
-RUN mv /install-postgis/postgis/postgis/sfcgal.sql /scripts/sfcgal.sql
 
 ADD postgis-template.sh /docker-entrypoint-initdb.d/postgis-template.sh
 
