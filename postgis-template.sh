@@ -1,9 +1,7 @@
 #!/bin/zsh -e
-echo "Creating template postgis"
-gosu postgres createdb template_postgis -E UTF8 -T template0
-
-echo "Enabling template_postgis as a template"
+echo "Creating template_postgis as a template"
 gosu postgres postgres --single -jE <<EOSQL
+CREATE DATABASE template_postgis TEMPLATE template0 ENCODING UTF8;
 UPDATE pg_database SET datistemplate = TRUE WHERE datname = 'template_postgis';
 EOSQL
 
