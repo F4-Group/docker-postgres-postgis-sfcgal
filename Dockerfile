@@ -84,3 +84,6 @@ WORKDIR /install-postgis/postgis
 RUN make install
 WORKDIR /install-postgis
 RUN ldconfig
+
+WORKDIR /
+RUN rm -rf /install-postgis
