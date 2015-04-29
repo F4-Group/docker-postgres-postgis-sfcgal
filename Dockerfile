@@ -85,5 +85,10 @@ RUN make install
 WORKDIR /install-postgis
 RUN ldconfig
 
+RUN mkdir /scripts
+RUN mv /install-postgis/postgis/postgis/sfcgal.sql /scripts/sfcgal.sql
+
+ADD postgis-template.sh /docker-entrypoint-initdb.d/postgis-template.sh
+
 WORKDIR /
 RUN rm -rf /install-postgis

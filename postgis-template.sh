@@ -1,0 +1,10 @@
+#!/bin/zsh -e
+echo "Creating template postgis"
+su - postgres -c "createdb template_postgis -E UTF8 -T template0"
+echo "Enabling template_postgis as a template"
+su - postgres -c "UPDATE pg_database SET datistemplate = TRUE WHERE datname = 'template_postgis';"
+echo "enabling postgis"
+psql -d template_postgis -c "CREATE EXTENSION postgis;"
+psql -d template_postgis -c "CREATE EXTENSION postgis_topology;"
+echo "Loading sfcgal.sql"
+su - postgres -c "psql template_postgis -f /scripts/sfcgal.sql"
