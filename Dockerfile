@@ -47,7 +47,7 @@ RUN test -x geos
 WORKDIR /install-postgis/gdal
 ADD $GDAL /install-postgis/gdal.tar.gz
 RUN tar xf /install-postgis/gdal.tar.gz -C /install-postgis/gdal --strip-components=1
-RUN ./configure --with-geos=$geos_config && make -j $PROCESSOR_COUNT && make install
+RUN ./configure --with-geos=/usr/local/bin/geos-config && make -j $PROCESSOR_COUNT && make install
 RUN ldconfig
 WORKDIR /install-postgis
 RUN test -x gdal
