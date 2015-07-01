@@ -1,4 +1,5 @@
-#!/bin/sh -e
+#!/bin/bash -e
+# file is sourced from a bash script so shebang is not used
 #inspired by https://github.com/appropriate/docker-postgis/blob/master/9.4-2.1/initdb-postgis.sh
 
 echo "Creating template_postgis as a template"
