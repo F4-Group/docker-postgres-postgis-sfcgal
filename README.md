@@ -4,7 +4,7 @@ expand on https://github.com/docker-library/postgres
 
 includes :
 
-* PostgreSQL 9.4
+* PostgreSQL 9.4.0
 * PostGIS 2.1.7
 * geos 3.4.2
 * gdal 1.11.2
