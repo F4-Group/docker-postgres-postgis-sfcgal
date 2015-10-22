@@ -4,20 +4,20 @@ MAINTAINER F4<contact@f4-group.com>
 ###Versions
 
 #from http://postgis.net/source
-ENV POSTGIS_MAJOR 2.1
-ENV POSTGIS_VERSION 2.1.7
+ENV POSTGIS_MAJOR 2.2
+ENV POSTGIS_VERSION 2.2.0
 ENV POSTGIS http://download.osgeo.org/postgis/source/postgis-$POSTGIS_VERSION.tar.gz
 
 #from http://trac.osgeo.org/geos/
-ENV GEOS http://download.osgeo.org/geos/geos-3.4.2.tar.bz2
+ENV GEOS http://download.osgeo.org/geos/geos-3.5.0.tar.bz2
 #from http://trac.osgeo.org/gdal/wiki/DownloadSource
-ENV GDAL http://download.osgeo.org/gdal/1.11.2/gdal-1.11.2.tar.gz
-#from https://trac.osgeo.org/proj/
-ENV PROJ http://download.osgeo.org/proj/proj-4.9.1.tar.gz
+ENV GDAL http://download.osgeo.org/gdal/2.0.1/gdal-2.0.1.tar.gz
+#from https://github.com/OSGeo/proj.4/wiki
+ENV PROJ https://github.com/OSGeo/proj.4/4.9.2.tar.gz
 #from https://gforge.inria.fr/frs/?group_id=52
-ENV CGAL https://gforge.inria.fr/frs/download.php/34705/CGAL-4.6.tar.xz
+ENV CGAL https://gforge.inria.fr/frs/download.php/file/35139/CGAL-4.6.3.tar.xz
 #from https://github.com/Oslandia/SFCGAL/releases
-ENV SFCGAL https://github.com/Oslandia/SFCGAL/archive/v1.1.0.tar.gz
+ENV SFCGAL https://github.com/Oslandia/SFCGAL/archive/v1.2.0.tar.gz
 
 #TODO make PROCESSOR_COUNT dynamic
 #built by docker.io, so reducing to 1. increase to match build server processor count as needed
@@ -25,14 +25,13 @@ ENV PROCESSOR_COUNT 1
 
 ##Installation
 
-RUN apt-get -y update
-
-# postgis required packages
-# PG_MAJOR from parent container
-RUN apt-get -y install build-essential postgresql-server-dev-$PG_MAJOR libxml2-dev libjson0-dev
-
+#postgis required packages, PG_MAJOR from parent container
 #lib building packages
-RUN apt-get -y install cmake libboost-dev libgmp-dev libmpfr-dev libboost-thread-dev libboost-system-dev
+#for address_standardizer
+RUN apt-get -y update && apt-get -y install \
+    build-essential postgresql-server-dev-$PG_MAJOR libxml2-dev libjson0-dev \
+    cmake libboost-dev libgmp-dev libmpfr-dev libboost-thread-dev libboost-system-dev \
+    libpcre3-dev
 
 WORKDIR /install-postgis
 
