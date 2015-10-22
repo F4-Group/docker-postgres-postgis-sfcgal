@@ -1,4 +1,4 @@
-FROM postgres:9.4.0
+FROM postgres:9.4
 MAINTAINER F4<contact@f4-group.com>
 
 ###Versions
