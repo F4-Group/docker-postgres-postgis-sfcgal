@@ -13,7 +13,7 @@ ENV GEOS http://download.osgeo.org/geos/geos-3.5.0.tar.bz2
 #from http://trac.osgeo.org/gdal/wiki/DownloadSource
 ENV GDAL http://download.osgeo.org/gdal/2.0.1/gdal-2.0.1.tar.gz
 #from https://github.com/OSGeo/proj.4/wiki
-ENV PROJ https://github.com/OSGeo/proj.4/4.9.2.tar.gz
+ENV PROJ http://download.osgeo.org/proj/proj-4.9.2.tar.gz
 #from https://gforge.inria.fr/frs/?group_id=52
 ENV CGAL https://gforge.inria.fr/frs/download.php/file/35139/CGAL-4.6.3.tar.xz
 #from https://github.com/Oslandia/SFCGAL/releases
