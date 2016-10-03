@@ -1,11 +1,11 @@
-FROM postgres:9.5
+FROM postgres:9.6
 MAINTAINER F4<contact@f4-group.com>
 
 ###Versions
 
 #from http://postgis.net/source
-ENV POSTGIS_MAJOR 2.2
-ENV POSTGIS_VERSION 2.2.2
+ENV POSTGIS_MAJOR 2.3
+ENV POSTGIS_VERSION 2.3.0
 ENV POSTGIS http://download.osgeo.org/postgis/source/postgis-$POSTGIS_VERSION.tar.gz
 
 #from http://trac.osgeo.org/geos/
