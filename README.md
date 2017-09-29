@@ -5,12 +5,12 @@ expand on https://github.com/docker-library/postgres
 includes :
 
 * PostgreSQL 9.6
-* PostGIS 2.3.0
+* PostGIS 2.3.3
 * geos 3.5.0
-* gdal 2.1.1
-* proj 4.9.2
-* cgal 4.6.3
-* sfcgal 1.3.0
+* gdal 2.1.4
+* proj 4.9.3
+* cgal 4.10.1
+* sfcgal 1.3.2
 
 Use template `template_postgis` to create your databases with postgis / sfcgal enabled
 
