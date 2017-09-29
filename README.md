@@ -4,10 +4,10 @@ expand on https://github.com/docker-library/postgres
 
 includes :
 
-* PostgreSQL 9.6
-* PostGIS 2.3.3
-* geos 3.5.0
-* gdal 2.1.4
+* PostgreSQL 10
+* PostGIS 2.4.0rc3
+* geos 3.6.2
+* gdal 2.2.2
 * proj 4.9.3
 * cgal 4.10.1
 * sfcgal 1.3.2
