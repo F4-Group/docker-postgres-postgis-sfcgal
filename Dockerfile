@@ -4,8 +4,8 @@ MAINTAINER F4<contact@f4-group.com>
 ###Versions
 
 #from http://postgis.net/source
-ENV POSTGIS_MAJOR 2.3
-ENV POSTGIS_VERSION 2.3.3
+ENV POSTGIS_MAJOR 2.4
+ENV POSTGIS_VERSION 2.4.0
 ENV POSTGIS http://download.osgeo.org/postgis/source/postgis-$POSTGIS_VERSION.tar.gz
 
 #from http://trac.osgeo.org/geos/
