@@ -12,7 +12,7 @@ ENV POSTGIS http://download.osgeo.org/postgis/source/postgis-$POSTGIS_VERSION.ta
 ENV GEOS http://download.osgeo.org/geos/geos-3.6.2.tar.bz2
 #from http://trac.osgeo.org/gdal/wiki/DownloadSource
 ENV GDAL http://download.osgeo.org/gdal/2.2.2/gdal-2.2.2.tar.gz
-#from https://github.com/OSGeo/proj.4/wiki
+#from http://proj4.org/download.html
 ENV PROJ http://download.osgeo.org/proj/proj-4.9.3.tar.gz
 #from https://www.cgal.org/releases.html
 ENV CGAL https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.10.1/CGAL-4.10.1.tar.xz
