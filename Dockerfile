@@ -11,6 +11,14 @@ RUN apt-get -y update && apt-get -y install \
 
 ADD build-and-install-postgis.sh /build-and-install-postgis.sh
 
+RUN POSTGIS_VERSION=2.1.7 \
+    GEOS_VERSION=3.4.2 \
+    GDAL_VERSION=1.11.2 \
+    PROJ_VERSION=4.9.1 \
+    CGAL_VERSION=4.6 \
+    SFCGAL_VERSION=1.1.0 \
+    /build-and-install-postgis.sh
+
 RUN POSTGIS_VERSION=2.4.0 \
     GEOS_VERSION=3.6.2 \
     GDAL_VERSION=2.2.2 \
@@ -18,5 +26,7 @@ RUN POSTGIS_VERSION=2.4.0 \
     CGAL_VERSION=4.10.1 \
     SFCGAL_VERSION=1.3.2 \
     /build-and-install-postgis.sh
+
+RUN rm /build-and-install-postgis.sh
 
 ADD postgis-template.sh /docker-entrypoint-initdb.d/postgis-template.sh

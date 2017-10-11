@@ -14,7 +14,7 @@ GDAL=http://download.osgeo.org/gdal/$GDAL_VERSION/gdal-$GDAL_VERSION.tar.gz
 #from http://proj4.org/download.html
 PROJ=http://download.osgeo.org/proj/proj-$PROJ_VERSION.tar.gz
 #from https://www.cgal.org/releases.html
-CGAL=https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-$CGAL_VERSION/CGAL-$CGAL_VERSION.tar.xz
+CGAL=https://github.com/CGAL/cgal/archive/releases/CGAL-$CGAL_VERSION.tar.gz
 #from https://github.com/Oslandia/SFCGAL/releases
 SFCGAL=https://github.com/Oslandia/SFCGAL/archive/v$SFCGAL_VERSION.tar.gz
 
