@@ -22,7 +22,7 @@ mkdir -p /install-postgis/geos
 cd /install-postgis/geos
 wget -O /install-postgis/geos.tar.bz2 $GEOS
 tar xf /install-postgis/geos.tar.bz2 -C /install-postgis/geos --strip-components=1
-./configure && make -j $PROCESSOR_COUNT && make install
+./configure --disable-shared --enable-static && make -j $PROCESSOR_COUNT && make install
 ldconfig
 cd /install-postgis
 test -x geos
@@ -31,7 +31,7 @@ mkdir -p /install-postgis/gdal
 cd /install-postgis/gdal
 wget -O /install-postgis/gdal.tar.gz $GDAL
 tar xf /install-postgis/gdal.tar.gz -C /install-postgis/gdal --strip-components=1
-./configure --with-geos=/usr/local/bin/geos-config && make -j $PROCESSOR_COUNT && make install
+./configure --disable-shared --enable-static --with-geos=/usr/local/bin/geos-config && make -j $PROCESSOR_COUNT && make install
 ldconfig
 cd /install-postgis
 test -x gdal
@@ -40,7 +40,7 @@ mkdir -p /install-postgis/proj
 cd /install-postgis/proj
 wget -O /install-postgis/proj.tar.gz $PROJ
 tar xf /install-postgis/proj.tar.gz -C /install-postgis/proj --strip-components=1
-./configure && make -j $PROCESSOR_COUNT && make install
+./configure --disable-shared --enable-static && make -j $PROCESSOR_COUNT && make install
 cd /install-postgis
 test -f /usr/local/include/proj_api.h
 
@@ -48,7 +48,7 @@ mkdir -p /install-postgis/cgal
 cd /install-postgis/cgal
 wget -O /install-postgis/cgal.tar.xz $CGAL
 tar xf /install-postgis/cgal.tar.xz -C /install-postgis/cgal --strip-components=1
-cmake . && make -j $PROCESSOR_COUNT && make install
+cmake -DBUILD_SHARED_LIBS=OFF . && make -j $PROCESSOR_COUNT && make install
 cd /install-postgis
 test -d /usr/local/lib/CGAL
 
@@ -57,7 +57,7 @@ mkdir -p /install-postgis/sfcgal
 cd /install-postgis/sfcgal
 wget -O /install-postgis/sfcgal.tar.gz $SFCGAL
 tar xf /install-postgis/sfcgal.tar.gz -C /install-postgis/sfcgal --strip-components=1
-cmake . && make -j $PROCESSOR_COUNT && make install
+cmake -DSFCGAL_USE_STATIC_LIBS=ON . && make -j $PROCESSOR_COUNT && make install
 cd /install-postgis
 test -x $sfcgal_config
 
