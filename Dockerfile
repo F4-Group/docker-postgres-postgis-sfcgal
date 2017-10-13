@@ -19,6 +19,13 @@ RUN POSTGIS_VERSION=2.2.2 \
     SFCGAL_VERSION=1.3.0 \
     /build-and-install-postgis.sh
 
+RUN POSTGIS_VERSION=2.4.0 \
+    GEOS_VERSION=3.6.2 \
+    GDAL_VERSION=2.2.2 \
+    PROJ_VERSION=4.9.3 \
+    CGAL_VERSION=4.10.1 \
+    SFCGAL_VERSION=1.3.2 \
+    /build-and-install-postgis.sh
 
 RUN rm /build-and-install-postgis.sh
 
