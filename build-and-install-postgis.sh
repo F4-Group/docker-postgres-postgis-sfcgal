@@ -24,7 +24,7 @@ mkdir -p $BUILD_DIR/geos
 cd $BUILD_DIR/geos
 wget -O $BUILD_DIR/geos.tar.bz2 $GEOS
 tar xf $BUILD_DIR/geos.tar.bz2 -C $BUILD_DIR/geos --strip-components=1
-./configure --prefix=$INSTALL_DIR --disable-shared --enable-static && make -j $PROCESSOR_COUNT && make install
+./configure --prefix=$INSTALL_DIR && make -j $PROCESSOR_COUNT && make install
 ldconfig
 cd $BUILD_DIR
 test -x geos
@@ -33,7 +33,7 @@ mkdir -p $BUILD_DIR/gdal
 cd $BUILD_DIR/gdal
 wget -O $BUILD_DIR/gdal.tar.gz $GDAL
 tar xf $BUILD_DIR/gdal.tar.gz -C $BUILD_DIR/gdal --strip-components=1
-./configure --prefix=$INSTALL_DIR --disable-shared --enable-static --with-geos=$INSTALL_DIR/bin/geos-config && make -j $PROCESSOR_COUNT && make install
+./configure --prefix=$INSTALL_DIR --with-geos=$INSTALL_DIR/bin/geos-config && make -j $PROCESSOR_COUNT && make install
 ldconfig
 cd $BUILD_DIR
 test -x gdal
@@ -42,7 +42,7 @@ mkdir -p $BUILD_DIR/proj
 cd $BUILD_DIR/proj
 wget -O $BUILD_DIR/proj.tar.gz $PROJ
 tar xf $BUILD_DIR/proj.tar.gz -C $BUILD_DIR/proj --strip-components=1
-./configure --prefix=$INSTALL_DIR --disable-shared --enable-static && make -j $PROCESSOR_COUNT && make install
+./configure --prefix=$INSTALL_DIR && make -j $PROCESSOR_COUNT && make install
 cd $BUILD_DIR
 test -f $INSTALL_DIR/include/proj_api.h
 
@@ -50,7 +50,7 @@ mkdir -p $BUILD_DIR/cgal
 cd $BUILD_DIR/cgal
 wget -O $BUILD_DIR/cgal.tar.xz $CGAL
 tar xf $BUILD_DIR/cgal.tar.xz -C $BUILD_DIR/cgal --strip-components=1
-cmake -DBUILD_SHARED_LIBS=OFF . && make -j $PROCESSOR_COUNT && make install
+cmake . && make -j $PROCESSOR_COUNT && make install
 cd $BUILD_DIR
 test -d $INSTALL_DIR/lib/CGAL
 
@@ -59,7 +59,7 @@ mkdir -p $BUILD_DIR/sfcgal
 cd $BUILD_DIR/sfcgal
 wget -O $BUILD_DIR/sfcgal.tar.gz $SFCGAL
 tar xf $BUILD_DIR/sfcgal.tar.gz -C $BUILD_DIR/sfcgal --strip-components=1
-cmake -DSFCGAL_USE_STATIC_LIBS=ON . && make -j $PROCESSOR_COUNT && make install
+cmake . && make -j $PROCESSOR_COUNT && make install
 cd $BUILD_DIR
 test -x $sfcgal_config
 
