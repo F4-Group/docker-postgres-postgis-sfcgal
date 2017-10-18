@@ -11,12 +11,12 @@ RUN apt-get -y update && apt-get -y install \
 
 ADD build-and-install-postgis.sh /build-and-install-postgis.sh
 
-RUN POSTGIS_VERSION=2.2.2 \
+RUN POSTGIS_VERSION=2.2.1 \
     GEOS_VERSION=3.5.0 \
-    GDAL_VERSION=2.1.1 \
+    GDAL_VERSION=2.0.1 \
     PROJ_VERSION=4.9.2 \
     CGAL_VERSION=4.6.3 \
-    SFCGAL_VERSION=1.3.0 \
+    SFCGAL_VERSION=1.2.2 \
     /build-and-install-postgis.sh
 
 RUN POSTGIS_VERSION=2.4.0 \
