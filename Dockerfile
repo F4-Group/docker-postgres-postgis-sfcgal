@@ -5,19 +5,19 @@ MAINTAINER F4<contact@f4-group.com>
 
 #from http://postgis.net/source
 ENV POSTGIS_MAJOR 2.4
-ENV POSTGIS_VERSION 2.4.0
+ENV POSTGIS_VERSION 2.4.4
 ENV POSTGIS http://download.osgeo.org/postgis/source/postgis-$POSTGIS_VERSION.tar.gz
 
 #from http://trac.osgeo.org/geos/
 ENV GEOS http://download.osgeo.org/geos/geos-3.6.2.tar.bz2
 #from http://trac.osgeo.org/gdal/wiki/DownloadSource
-ENV GDAL http://download.osgeo.org/gdal/2.2.2/gdal-2.2.2.tar.gz
+ENV GDAL http://download.osgeo.org/gdal/2.3.1/gdal-2.3.1.tar.gz
 #from http://proj4.org/download.html
-ENV PROJ http://download.osgeo.org/proj/proj-4.9.3.tar.gz
+ENV PROJ http://download.osgeo.org/proj/proj-5.1.0.tar.gz
 #from https://www.cgal.org/releases.html
-ENV CGAL https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.10.1/CGAL-4.10.1.tar.xz
+ENV CGAL https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.12/CGAL-4.12.tar.xz
 #from https://github.com/Oslandia/SFCGAL/releases
-ENV SFCGAL https://github.com/Oslandia/SFCGAL/archive/v1.3.2.tar.gz
+ENV SFCGAL https://github.com/Oslandia/SFCGAL/archive/v1.3.5.tar.gz
 
 #TODO make PROCESSOR_COUNT dynamic
 #built by docker.io, so reducing to 1. increase to match build server processor count as needed
