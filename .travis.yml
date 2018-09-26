@@ -1,0 +1,9 @@
+# requires a VM instead of a container, avoiding need for dind
+sudo: required
+
+# docker deamon available
+services:
+  - docker
+
+install:
+  - docker build --pull=true docker
