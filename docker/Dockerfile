@@ -1,23 +1,23 @@
-FROM postgres:10
+FROM postgres:11
 MAINTAINER F4<contact@f4-group.com>
 
 ###Versions
 
 #from http://postgis.net/source
-ENV POSTGIS_MAJOR 2.4
-ENV POSTGIS_VERSION 2.4.4
+ENV POSTGIS_MAJOR 2.5
+ENV POSTGIS_VERSION 2.5.1
 ENV POSTGIS http://download.osgeo.org/postgis/source/postgis-$POSTGIS_VERSION.tar.gz
 
 #from http://trac.osgeo.org/geos/
-ENV GEOS http://download.osgeo.org/geos/geos-3.6.2.tar.bz2
+ENV GEOS http://download.osgeo.org/geos/geos-3.7.1.tar.bz2
 #from http://trac.osgeo.org/gdal/wiki/DownloadSource
-ENV GDAL http://download.osgeo.org/gdal/2.3.1/gdal-2.3.1.tar.gz
+ENV GDAL http://download.osgeo.org/gdal/2.4.0/gdal-2.4.0.tar.gz
 #from http://proj4.org/download.html
-ENV PROJ http://download.osgeo.org/proj/proj-5.1.0.tar.gz
+ENV PROJ http://download.osgeo.org/proj/proj-5.2.0.tar.gz
 #from https://www.cgal.org/releases.html
-ENV CGAL https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.12/CGAL-4.12.tar.xz
+ENV CGAL https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.13/CGAL-4.13.tar.xz
 #from https://github.com/Oslandia/SFCGAL/releases
-ENV SFCGAL https://github.com/Oslandia/SFCGAL/archive/v1.3.5.tar.gz
+ENV SFCGAL https://github.com/Oslandia/SFCGAL/archive/v1.3.6.tar.gz
 
 #TODO make PROCESSOR_COUNT dynamic
 #built by docker.io, so reducing to 1. increase to match build server processor count as needed
@@ -63,7 +63,7 @@ ADD $CGAL /install-postgis/cgal.tar.xz
 RUN tar xf /install-postgis/cgal.tar.xz -C /install-postgis/cgal --strip-components=1
 RUN cmake . && make -j $PROCESSOR_COUNT && make install
 WORKDIR /install-postgis
-RUN test -d /usr/local/lib/CGAL
+RUN test -d /usr/local/lib/cmake/CGAL
 
 WORKDIR /install-postgis/sfcgal
 ADD $SFCGAL /install-postgis/sfcgal.tar.gz
