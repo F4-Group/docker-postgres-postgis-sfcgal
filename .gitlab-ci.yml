@@ -7,6 +7,10 @@ variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_DRIVER: overlay2
 
+stages:
+  - build
+  - test
+
 build:
   image: docker:stable
   stage: build
@@ -26,3 +30,13 @@ build:
     - docker push $IMAGE_TAG
     # make cache available on registry
     - docker push $CACHE_TAG
+
+test:
+  stage: test
+  services:
+  - name: $IMAGE_TAG
+    alias: postgres
+  script:
+    - cd test
+    - npm install
+    - npm start
