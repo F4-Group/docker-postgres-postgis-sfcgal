@@ -7,3 +7,5 @@ services:
 
 install:
   - docker build --pull=true docker
+
+# TODO find a way to start test script against built image, before publishing it to official docker hub
