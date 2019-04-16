@@ -1,0 +1,11 @@
+{
+    "name": "docker-elasticsearch-test",
+    "version": "0.0.1",
+    "dependencies": {
+        "lodash": "^4.17.11",
+        "pg-promise": "^8.5.5"
+    },
+    "scripts": {
+        "start": "node test.js"
+    }
+}

@@ -1,0 +1,42 @@
+image: node:8
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY/$CI_PROJECT_PATH:$CI_COMMIT_REF_SLUG
+  CACHE_TAG: $CI_REGISTRY/$CI_PROJECT_PATH:cache
+  # docker in docker (dind) service configuration
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+
+stages:
+  - build
+  - test
+
+build:
+  image: docker:stable
+  stage: build
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  services:
+    - docker:dind
+  tags:
+    # limit to runner with dind tag
+    - dind
+  script:
+    # pull cache image
+    - docker pull $CACHE_TAG || true
+    # build new image, and update cache image
+    - docker build --cache-from $CACHE_TAG --tag $IMAGE_TAG --tag $CACHE_TAG docker
+    # make image available on registry
+    - docker push $IMAGE_TAG
+    # make cache available on registry
+    - docker push $CACHE_TAG
+
+test:
+  stage: test
+  services:
+  - name: $IMAGE_TAG
+    alias: postgres
+  script:
+    - cd test
+    - npm install
+    - npm start
